@@ -1,6 +1,6 @@
 ﻿namespace SimuTrainApp.Models
 {
-    public class Route
+    public class RouteOfTrain
     {
 
 
@@ -15,12 +15,12 @@
 
         #region "Constructor Route"
 
-        public Route()
+        public RouteOfTrain()
         {
 
         }
 
-        public Route(int IdDepartureStation, String departureTime, string arrivalTime, int IdArrivalStation)
+        public RouteOfTrain(int IdDepartureStation, String departureTime, string arrivalTime, int IdArrivalStation)
         {
             this.IdDepartureStation = IdDepartureStation;
             DepartureTime = departureTime;
