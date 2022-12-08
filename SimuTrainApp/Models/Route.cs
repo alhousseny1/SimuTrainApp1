@@ -6,10 +6,10 @@
 
         #region "Properties Route"
 
-        public int IdDepartureStation { get; set; }
+        public Station DepartureStation { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
-        public int IdArrivalStation { get; set; }
+        public Station ArrivalStation { get; set; }
 
         #endregion
 
@@ -20,12 +20,12 @@
 
         }
 
-        public RouteOfTrain(int IdDepartureStation, String departureTime, string arrivalTime, int IdArrivalStation)
+        public RouteOfTrain(Station IdDepartureStation, String departureTime, string arrivalTime, Station IdArrivalStation)
         {
-            this.IdDepartureStation = IdDepartureStation;
+            this.DepartureStation = IdDepartureStation;
             DepartureTime = departureTime;
             ArrivalTime = arrivalTime;
-            this.IdArrivalStation = IdArrivalStation;
+            this.ArrivalStation = IdArrivalStation;
         }
 
 
