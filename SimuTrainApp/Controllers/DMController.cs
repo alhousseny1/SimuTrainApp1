@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SimuTrainApp.Models;
 using SimuTrainApp.ViewModels;
 
 namespace SimuTrainApp.Controllers
@@ -12,6 +13,14 @@ namespace SimuTrainApp.Controllers
             ListTrainVM LT = new ListTrainVM();
             return View(LT);
         }
+
+        // GET: DMController/CurrentTrainDashboard
+        public ActionResult CurrentTrainDashBoard()
+        {
+            ListTrainVM LT = new ListTrainVM();
+            return View(LT);
+        }
+
 
         // GET: DMController/Details/5
         public ActionResult Details(int id)
