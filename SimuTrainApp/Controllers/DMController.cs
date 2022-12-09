@@ -7,6 +7,8 @@ namespace SimuTrainApp.Controllers
 {
     public class DMController : Controller
     {
+        private static List<Train> Trains { get; set; }
+
         // GET: DMController
         public ActionResult ListTrain()
         {
@@ -18,14 +20,29 @@ namespace SimuTrainApp.Controllers
         public ActionResult CurrentTrainDashBoard()
         {
             ListTrainVM LT = new ListTrainVM();
+            Trains = LT.trains;
             return View(LT);
         }
 
 
-        // GET: DMController/Details/5
-        public ActionResult Details(int id)
+        // GET: DMController/TrainDetail
+        public ActionResult TrainDetail(String id)
         {
-            return View();
+            Train CurrentTrain = null;
+            string? ErrorMessage = null;
+            try
+            {
+                CurrentTrain = Trains.First(e => e.Matricule == id);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = "Train introuvable";
+            }
+
+            TrainDetailVM VM = new TrainDetailVM(
+                CurrentTrain, ErrorMessage);
+
+            return View(VM);
         }
 
         // GET: DMController/Create
