@@ -1,0 +1,42 @@
+﻿
+
+<section class="Centered">
+    <div class="text-center">
+        <h1 class="display-4">
+            Bienvenue sur la @Model.Title.ToLower()
+        </h1>
+        <br />
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>Train</th>
+                    <th>Station d'arrivée</th>
+                    <th>Heure de Depart</th>
+                </tr>
+            </thead>
+
+            @foreach (Train train in Model.trains)
+            {
+
+                <tr class="table-info">
+
+
+                    <td class="table-dark"><a href="TrainDetail/@train.Matricule">@train.Matricule </a></td>
+
+                    <td>@train.RouteOfTrain.ArrivalStation.Name</td>
+                    <td>@train.RouteOfTrain.ArrivalTime</td>
+
+
+                </tr>
+
+
+            }
+
+
+
+
+
+
+        </table>
+    </div>
+</section>
