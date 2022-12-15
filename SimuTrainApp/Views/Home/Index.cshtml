@@ -1,8 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+    <div class="container-fluid">
+<div class="wrapper-train">
+    <img src="~/assets/trainrail.png">
+    </div>
 </div>
+<div class="text-center">  
+    <a class="center" asp-controller="DM" asp-action="ListTrain">
+        <img class="start-image"  src="~/assets/start.png" />
+    </a>
+</div>
+    
