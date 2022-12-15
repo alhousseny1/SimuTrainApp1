@@ -17,6 +17,7 @@ body {
   margin-bottom: 60px;
 }
 
+
 a:hover {
     background-color: lightgray;
 }
@@ -66,3 +67,27 @@ th:not(:last-child), td:not(:last-child) {
 .alert-danger {
     margin-bottom: 30px;
 }
+
+.wrapper-train {
+    background-color:skyblue;
+    margin-right:0;
+    margin-left:0;
+    height:15%;
+}
+
+.wrapper-train img {
+    height: 15%;
+    width: 20%;
+    margin-top:50px;
+    margin-left: 42%;
+    margin-right: 50%;
+    margin-bottom:-100px;
+}
+
+
+.start-image{
+    margin-top:15%;
+   width:50%;
+}
+
+

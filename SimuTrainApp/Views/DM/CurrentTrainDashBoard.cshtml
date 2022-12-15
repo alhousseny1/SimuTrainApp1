@@ -6,7 +6,12 @@
             Bienvenue sur la @Model.Title.ToLower()
         </h1>
 
+
         <table>
+
+        <br />
+        <table class="table table-bordered table-dark">
+
             <thead>
                 <tr>
                     <th>Train</th>
@@ -26,6 +31,26 @@
                     <td><a href="TrainDetail/@train.Matricule"> Show Detail</a> </td>
                 </tr>
             }
+
+
+            <tr class="table-info">
+
+
+                    <td class="table-dark"><a href="TrainDetail/@train.Matricule">@train.Matricule </a></td>
+
+                    <td>@train.RouteOfTrain.ArrivalStation.Name</td>
+                    <td>@train.RouteOfTrain.ArrivalTime</td>
+
+
+                </tr>
+
+
+            }
+
+
+
+
+
 
 
         </table>

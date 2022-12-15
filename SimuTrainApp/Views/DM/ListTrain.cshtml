@@ -3,6 +3,7 @@
 
 <div class="text-center">
     <h1 class="display-4">
+
         Bienvenue sur la @Model.Title.ToLower();
     </h1>
 
@@ -13,14 +14,37 @@
                 <th>Nombre De Passager Autorisé</th>
                 <th>Nombre de Passager A Bord</th>
                 <th>Nombre de Colis A Bord</th>
+
+        Bienvenue sur la @Model.Title.ToLower()
+    </h1>
+    <br />
+    <div class="container">
+           <div class="row">
+            <div class="col-md-8">
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th col="row">Matricule</th>
+                <th col="row">Nombre De Passager Autorisé</th>
+                <th col="row">Nombre de Passager A Bord</th>
+                <th col="row">Nombre de Colis A Bord</th>
+
             </tr>
         </thead>
 
         @foreach( Train train in Model.trains)
         {
+
             <tr>
 
                 <td>@train.Matricule</td>
+
+            <tr class="table-info">
+
+                <td class="table-dark" >
+                        @train.Matricule
+                </td>
+
                 <td>@train.Capacity</td>
                 <td>@train.NBPassenger</td>
                 <td>@train.NBParcels</td>
@@ -35,6 +59,16 @@
 
     </table>
 
+
+
+                </table>
+            </div>
+    <div class="col-md-4">
+        <img src="~/assets/bgtrain.jpg" />
+    </div>
+
+        </div>
+    </div>
 
 </div>
 

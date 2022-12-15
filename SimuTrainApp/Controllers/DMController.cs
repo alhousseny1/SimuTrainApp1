@@ -20,6 +20,7 @@ namespace SimuTrainApp.Controllers
         public ActionResult CurrentTrainDashBoard()
         {
             ListTrainVM LT = new ListTrainVM();
+
             Trains = LT.trains;
             return View(LT);
         }
@@ -43,6 +44,11 @@ namespace SimuTrainApp.Controllers
                 CurrentTrain, ErrorMessage);
 
             return View(VM);
+
+        // GET: DMController/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
         }
 
         // GET: DMController/Create
