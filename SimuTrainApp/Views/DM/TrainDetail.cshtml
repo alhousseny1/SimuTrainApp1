@@ -1,62 +1,42 @@
 ﻿@model SimuTrainApp.ViewModels.TrainDetailVM
 +
-<section class="Centered">
+<div class="text-center">
     @if (Model.ErrorMessage == null)
     {
         <h1>@Model.Title</h1>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div>
 
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        Train
-                    </td>
-                    <td>
-                        @Model.CurrentTrain.Matricule
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Destination
-                    </td>
-                    <td>
-                        @Model.CurrentTrain.RouteOfTrain.DepartureStation.Name
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Gare de Depart
-                    </td>
-                    <td>
-                        @Model.CurrentTrain.RouteOfTrain.ArrivalStation.Name
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Heure d'arrivée
-                    </td>
-                    <td>
-                        @Model.CurrentTrain.RouteOfTrain.ArrivalTime
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        NB de Passager
-                    </td>
-                    <td>
-                        @Model.CurrentTrain.NBPassenger
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        NB de Colis
-                    </td>
-                    <td>
-                        @Model.CurrentTrain.NBParcels
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <table class="table table-bordered table-dark">
+                        <thead>
+                            <tr>
+                                <th col="row">Train</th>
+                                <th col="row">Gare de départ</th>
+                                <th col="row">Destination</th>
+                                <th col="row">Heure d'arrivé</th>
+                                <th col="row">NB de Passager</th>
+                                <th col="row">NB de Colis</th>
+                            </tr>
+                        </thead>
+
+                        <tr class="table-info">
+
+
+                            <td class="table-dark">
+                                @Model.CurrentTrain.Matricule
+                            </td>
+                            <td>@Model.CurrentTrain.RouteOfTrain.DepartureStation.Name</td>
+                            <td>@Model.CurrentTrain.RouteOfTrain.ArrivalStation.Name</td>
+                            <td>@Model.CurrentTrain.RouteOfTrain.ArrivalTime</td>
+                            <td>@Model.CurrentTrain.NBPassenger </td>
+                            <td>@Model.CurrentTrain.NBParcels </td>
+                        </tr>
+                </div>
+
+            </div>
+        </div>
     }
     else
     {
@@ -67,4 +47,4 @@
         Retour à la liste
     </a>
 
-</section>
+</div>
