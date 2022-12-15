@@ -20,8 +20,8 @@ namespace SimuTrainApp.ViewModels
             ListStationVM lS = new ListStationVM();
             MyDashBoardstations = lS.stations;
 
-            routes.Add(new RouteOfTrain(MyDashBoardstations[0], "12h30", "13h00",30, MyDashBoardstations[1]));
-            routes.Add(new RouteOfTrain(MyDashBoardstations[1], "13h35", "14h05",43, MyDashBoardstations[2]));
+            routes.Add(new RouteOfTrain(MyDashBoardstations[0], "12h30", "13h00", MyDashBoardstations[1]));
+            routes.Add(new RouteOfTrain(MyDashBoardstations[1], "13h35", "14h05", MyDashBoardstations[2]));
 
 
         }
