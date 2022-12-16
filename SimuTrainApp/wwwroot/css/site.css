@@ -18,9 +18,9 @@ body {
 }
 
 
-a:hover {
+/*a:hover {
     background-color: lightgray;
-}
+}*/
 
 
 /* Views datalist management */
@@ -60,8 +60,8 @@ th:not(:last-child), td:not(:last-child) {
     text-decoration: none;
 }
 
-    .MyButton:hover {
-        background-color: aquamarine;
+.MyButton:hover {
+   background-color: aquamarine;
     }
 
 .alert-danger {
@@ -69,10 +69,11 @@ th:not(:last-child), td:not(:last-child) {
 }
 
 .wrapper-train {
-    background-color:skyblue;
-    margin-right:0;
-    margin-left:0;
-    height:15%;
+    display:flex;
+    background-color: skyblue;
+    margin-right: 0;
+    margin-left: 0;
+    height: 15%;
 }
 
 .wrapper-train img {
@@ -86,7 +87,140 @@ th:not(:last-child), td:not(:last-child) {
 
 
 .start-image{
-    margin-top:15%;
+   margin-top:15%;
    width:50%;
 }
 
+.trainplacement {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 25vh;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    flex-direction: column;
+}   
+
+
+
+.train {
+    height: 40px;
+    width: 140px;
+    background: #040404;
+    border-radius: 5px;
+    position: relative;
+    animation: animate 0.5s linear infinite;
+}
+
+.train:before {
+    position: absolute;
+    content: '';
+    height: 30px;
+    width: 60px;
+    background: #fff;
+    top: -10px;
+    right: -20px;
+    transform: rotate(40deg);
+    border-radius: 0 0 0 50px;
+    }
+
+@keyframes animate {
+    100% {
+        transform: translate(2px);
+    }
+}
+
+.train .wheel {
+    height: 30px;
+    width: 30px;
+    background-color: #000;
+    border: 3px solid #fff;
+    position: absolute;
+    border-radius: 50px;
+    margin-left: 50px;
+    bottom: -20px;
+    animation: wheels 0.6s linear infinite;
+}
+
+    .train .wheel:before {
+    position: absolute;
+    content: '';
+    background: #fff;
+    height: 5px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    }
+
+.train .wheel:after {
+    position: absolute;
+    content: '';
+    background: #fff;
+    height: 5px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    }
+
+@keyframes wheels {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.train .front {
+    position: absolute;
+    margin: 0 80px;
+}
+
+.train .back {
+    position: absolute;
+    margin: 0 10px;
+}
+
+.cover {
+    position: relative;
+    height: 10px;
+    width: 200px;
+    bottom: -15px;
+    overflow: hidden;
+}
+
+.cover .path {
+     height: 5px;
+     width: 600%;
+     background: #000;
+     position: absolute;
+     animation: path 1.5s linear infinite;
+    }
+
+.path:before {
+    position: absolute;
+    content: '';
+    height: 8px;
+    width: 18px;
+    background: #fff;
+    right: 60%;
+}
+
+.path:after {
+    position: absolute;
+    content: '';
+    height: 8px;
+    width: 18px;
+    background: #fff;
+    right: 60%;
+}
+
+@keyframes path {
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.text{
+    position:relative;
+    text-align:center;
+    bottom: -30px;
+    font-size:20px;
+}
