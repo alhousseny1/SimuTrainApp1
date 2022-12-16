@@ -6,10 +6,8 @@ public class Station
     public string Name { get; set; }
     public string Place { get; set; }
     public int NBParcels { get; set; }
-    public int NBParcelsPerHour { get; set; }
     public int NBPassenger { get; set; }
-    public int NBPassengerPerHour { get; set; }
-    public List<Train> TrainInStation { get; set; }
+    public Train TrainInStation { get; set; }
 
     #endregion
 
