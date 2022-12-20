@@ -18,47 +18,7 @@ body {
 }
 
 
-/*a:hover {
-    background-color: lightgray;
-}*/
 
-
-/* Views datalist management */
-.Centered {
-    text-align: center;
-}
-
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 50px;
-}
-
-table thead {
-    text-align: center;
-    background-color: aquamarine;
-}
-
-/* couleur khaki pour toutes les lignes paires d'un tableau */
-tr:nth-child(even) {
-    background-color: #c591db;
-}
-
-tr:hover {
-    background-color: lightblue;
-}
-
-/* bordure droite pour toutes les cellules d'un tableau sauf la derniere */
-th:not(:last-child), td:not(:last-child) {
-    border-right: 2px solid black;
-}
-
-.MyButton {
-    margin: 20px;
-    padding: 10px;
-    border: 2px solid blue;
-    text-decoration: none;
-}
 
 .MyButton:hover {
    background-color: aquamarine;
@@ -70,7 +30,7 @@ th:not(:last-child), td:not(:last-child) {
 
 .wrapper-train {
     display:flex;
-    background-color: skyblue;
+
     margin-right: 0;
     margin-left: 0;
     height: 15%;
