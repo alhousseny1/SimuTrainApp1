@@ -10,6 +10,7 @@
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
         public Station ArrivalStation { get; set; }
+        public int Distance { get; set; }
 
         #endregion
 

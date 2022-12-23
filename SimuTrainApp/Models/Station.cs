@@ -3,11 +3,12 @@
 public class Station
 {
     #region "Properties Station"
+
     public string Name { get; set; }
     public string Place { get; set; }
-    public int NBParcels { get; set; }
-    public int NBPassenger { get; set; }
-    public Train TrainInStation { get; set; }
+    public List<Person> Passengers { get; set; }
+    public List<Parcel> Parcels { get; set; }
+    public List<Train> TrainsInStation { get; set; }
 
     #endregion
 
@@ -19,13 +20,15 @@ public class Station
     public Station(
         string Name,
         string Place,
-        int NBParcels,
-        int NBPassenger)
+        List<Train> trains,
+        List<Person> Passengers,
+        List<Parcel> Parcels)
     {
         this.Name = Name;
         this.Place = Place;
-        this.NBParcels = NBParcels;
-        this.NBPassenger = NBPassenger;
+        this.TrainsInStation = trains;
+        this.Parcels = Parcels;
+        this.Passengers = Passengers;
     }
     #endregion
 
