@@ -9,7 +9,7 @@ namespace SimuTrainApp.ViewModels
 
         public ListStationVM()
         {
-            this.Title = "List Station";
+            this.Title = "Liste de Station";
             initialisedata();
         }
 

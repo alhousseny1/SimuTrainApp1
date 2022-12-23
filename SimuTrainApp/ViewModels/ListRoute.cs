@@ -11,7 +11,7 @@ namespace SimuTrainApp.ViewModels
 
         public ListRouteVM()
         {
-            this.Title = "List Routes";
+            this.Title = "Liste de Routes";
             initialisedata();
         }
 
