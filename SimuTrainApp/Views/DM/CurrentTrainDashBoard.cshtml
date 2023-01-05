@@ -12,7 +12,8 @@
                     <th>Train</th>
                     <th>Station d'arrivée</th>
                     <th>Heure de Depart</th>
-                    <th>Détails du train</th>
+                    <th>Temp d'attente</th>
+ @*                   <th>Détails du train</th>*@
                 </tr>
             </thead>
 
@@ -21,10 +22,11 @@
 
                 <tr  class="table-info">
 
-                    <td class="table-dark">@train.Matricule</td>
+                    <td class="table-dark"><a href="TrainDetail/@train.Matricule">@train.Matricule</td>
                     <td>@train.RouteOfTrain.ArrivalStation.Name</td>
-                    <td>@train.RouteOfTrain.ArrivalTime</td>
-                    <td><a href="TrainDetail/@train.Matricule"> Show Detail</a> </td>
+                    <td>@train.RouteOfTrain.DepartureTime</td>
+                    <td>@train.RouteOfTrain.Horaire</td>
+                    @*<td><a href="TrainDetail/@train.Matricule"> Show Detail</a> </td>*@
                 </tr>
             }
 
