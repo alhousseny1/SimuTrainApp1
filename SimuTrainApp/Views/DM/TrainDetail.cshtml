@@ -1,5 +1,5 @@
 ﻿@model SimuTrainApp.ViewModels.TrainDetailVM
-+
+
 <div class="text-center">
     @if (Model.ErrorMessage == null)
     {
@@ -15,9 +15,11 @@
                                 <th col="row">Train</th>
                                 <th col="row">Gare de départ</th>
                                 <th col="row">Destination</th>
+                                <th col="row">Heure de départ</th>
                                 <th col="row">Heure d'arrivé</th>
                                 <th col="row">NB de Passager</th>
                                 <th col="row">NB de Colis</th>
+                                
                             </tr>
                         </thead>
 
@@ -29,9 +31,11 @@
                             </td>
                             <td>@Model.CurrentTrain.RouteOfTrain.DepartureStation.Name</td>
                             <td>@Model.CurrentTrain.RouteOfTrain.ArrivalStation.Name</td>
+                            <td>@Model.CurrentTrain.RouteOfTrain.DepartureTime</td>
                             <td>@Model.CurrentTrain.RouteOfTrain.ArrivalTime</td>
                             <td>@Model.CurrentTrain.NBPassenger </td>
                             <td>@Model.CurrentTrain.NBParcels </td>
+                            
                         </tr>
                         </table>
                 </div>
@@ -59,4 +63,3 @@
     <div class="text"> Votre train est en déplacement ...</div>
     </div>
 </div>
-c
