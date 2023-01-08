@@ -1,8 +1,11 @@
-﻿namespace SimuTrainApp.Models;
+﻿using System.ComponentModel.DataAnnotations;
+namespace SimuTrainApp.Models;
 
 public class Station
 {
     #region "Properties Station"
+    [Key]
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Place { get; set; }
     public int NBParcels { get; set; }
