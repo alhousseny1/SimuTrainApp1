@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SimuTrainApp.Models;
+using Route = SimuTrainApp.Models.Route;
 
 namespace SimuTrainApp.Data
 {
@@ -14,10 +15,10 @@ namespace SimuTrainApp.Data
         {
         }
 
-        public DbSet<SimuTrainApp.Models.Train> Train { get; set; } = default!;
+        public DbSet<Route> Route { get; set; } = default!;
+        public DbSet<Station> Station { get; set; } = default!;
+        public DbSet<Train> Train { get; set; } = default!;
+            
 
-        public DbSet<SimuTrainApp.Models.Route> Route { get; set; }
-
-        public DbSet<SimuTrainApp.Models.Station> Station { get; set; }
     }
 }

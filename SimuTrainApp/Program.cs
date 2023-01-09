@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SimuTrainAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SimuTrainAppContext") ?? throw new InvalidOperationException("Connection string 'SimuTrainAppContext' not found.")));
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
