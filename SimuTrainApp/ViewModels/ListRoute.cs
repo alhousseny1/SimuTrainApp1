@@ -1,4 +1,5 @@
 ﻿using SimuTrainApp.Models;
+using Route = SimuTrainApp.Models.Route;
 
 namespace SimuTrainApp.ViewModels
 {
@@ -7,7 +8,7 @@ namespace SimuTrainApp.ViewModels
         
         public string Title { get; set; }
         public List<Station> MyDashBoardstations { get; set; } = new List<Station>();
-        public List<RouteOfTrain> routes { get; set; } = new List<RouteOfTrain>();
+        public List<Route> routes { get; set; } = new List<Route>();
         public TimeSpan Horaire { get; private set; }
 
 
@@ -24,8 +25,8 @@ namespace SimuTrainApp.ViewModels
             
             
 
-            routes.Add(new RouteOfTrain(MyDashBoardstations[0], TimeOnly.Parse("13:30"), TimeOnly.Parse("14:45"), 60, MyDashBoardstations[1],Horaire));
-            routes.Add(new RouteOfTrain(MyDashBoardstations[1], TimeOnly.Parse("13:30"), TimeOnly.Parse("14:37"), 60, MyDashBoardstations[2],Horaire));
+            routes.Add(new Route(MyDashBoardstations[0], TimeSpan.Parse("13:30"), TimeSpan.Parse("14:45"), 60, MyDashBoardstations[1],Horaire));
+            routes.Add(new Route(MyDashBoardstations[1], TimeSpan.Parse("13:30"), TimeSpan.Parse("14:37"), 60, MyDashBoardstations[2],Horaire));
 
 
         }

@@ -30,15 +30,16 @@ a{
     text-align: center;
 }
 
-table {
+/*table {
     width: 80%;
     margin: 20px auto;
     border-radius: 50px;
-}
+}*/
 
 table thead {
     text-align: center;
-    background-color: aquamarine;
+    text-decoration:#fff;
+    background-color: #000;
 }
 
 /* couleur khaki pour toutes les lignes paires d'un tableau */
@@ -46,9 +47,9 @@ tr:nth-child(even) {
     background-color: #c591db;
 }
 
-tr:hover {
+/*tr:hover {
     background-color: lightblue;
-}
+}*/
 
 /* bordure droite pour toutes les cellules d'un tableau sauf la derniere */
 th:not(:last-child), td:not(:last-child) {
@@ -214,6 +215,7 @@ th:not(:last-child), td:not(:last-child) {
     background: #fff;
     right: 60%;
 }
+
 
 @keyframes path {
     100% {

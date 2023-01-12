@@ -1,29 +1,35 @@
-﻿namespace SimuTrainApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
+
+
+namespace SimuTrainApp.Models
 {
-    public class RouteOfTrain
+    
+    public class Route
     {
 
 
         #region "Properties Route"
-
-        public Station DepartureStation { get; set; }
-        public TimeOnly DepartureTime { get; set; }
-        public TimeOnly ArrivalTime { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public Station? DepartureStation { get; set; }
+        public TimeSpan? DepartureTime { get; set; }
+        public TimeSpan? ArrivalTime { get; set; }
         public int Distance { get; set; }
-        public Station ArrivalStation { get; set; }
+        public Station? ArrivalStation { get; set; }
 
-        public TimeSpan Horaire { get; set; }
+        public TimeSpan? Horaire { get; set; }
 
         #endregion
 
         #region "Constructor Route"
 
-        public RouteOfTrain()
+        public Route()
         {
 
         }
 
-        public RouteOfTrain(Station IdDepartureStation, TimeOnly departureTime, TimeOnly arrivalTime, int Distance, Station IdArrivalStation, TimeSpan Horaire)
+        public Route(Station IdDepartureStation, TimeSpan departureTime, TimeSpan arrivalTime, int Distance, Station IdArrivalStation, TimeSpan Horaire)
         {
             this.DepartureStation = IdDepartureStation;
             this.DepartureTime =  departureTime;

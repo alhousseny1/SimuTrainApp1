@@ -1,14 +1,17 @@
-﻿namespace SimuTrainApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace SimuTrainApp.Models
 {
     public class Train
     {
         #region "Properties Train"
+        [Key]
+        public int Id { get; set; }
         public string Matricule { get; set; }
         public int Capacity { get; set; }
         public int NBPassenger { get; set; }
         public int NBParcels { get; set; }
         public int Speed { get; set; }
-        public RouteOfTrain RouteOfTrain { get; set; }
+        public Route RouteOfTrain { get; set; }
         
         public void StartEngine() { }
         #endregion
@@ -25,7 +28,7 @@
             int NBPassenger,
             int NBParcels,
             int Speed,
-            RouteOfTrain Route)
+            Route Route)
         {
             this.Matricule = Matricule;
             this.Capacity = Capacity;

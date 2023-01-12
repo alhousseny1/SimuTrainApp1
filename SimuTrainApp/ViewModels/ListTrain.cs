@@ -1,5 +1,6 @@
 ﻿using SimuTrainApp.Models;
 using System.Collections.Immutable;
+using Route = SimuTrainApp.Models.Route;
 
 namespace SimuTrainApp.ViewModels
 {
@@ -7,7 +8,7 @@ namespace SimuTrainApp.ViewModels
     {
         public string Title { get; set; }
         public List<Train> trains { get; set; } = new List<Train>();
-        public List<RouteOfTrain> ListRoute { get; set; } = new List<RouteOfTrain>();
+        public List<Route> ListRoute { get; set; } = new List<Route>();
 
         public ListTrainVM()
         {
