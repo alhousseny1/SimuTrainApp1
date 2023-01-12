@@ -9,8 +9,8 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-bordered table-dark">
+    <thead >
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Matricule)
@@ -27,12 +27,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Speed)
             </th>
-@*            <th></th>
-*@        </tr>
+           <th></th>
+       </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr class="table-info">
             <td>
                 @Html.DisplayFor(modelItem => item.Matricule)
             </td>

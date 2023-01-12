@@ -9,28 +9,28 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-bordered table-dark">
+    <thead >
         <tr>
-            <th>
+            <th col="row">
                 @Html.DisplayNameFor(model => model.DepartureTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ArrivalTime)
-            </th>
+            </th col="row">
             <th>
                 @Html.DisplayNameFor(model => model.Distance)
-            </th>
+            </th col="row">
             <th>
                 @Html.DisplayNameFor(model => model.Horaire)
-            </th>
-@*            <th></th>
-*@        </tr>
+            </th col="row">
+            <th col="row"></th>
+        </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
+            <tr class="table-info" >
+                <td >
                 @Html.DisplayFor(modelItem => item.DepartureTime)
             </td>
             <td>

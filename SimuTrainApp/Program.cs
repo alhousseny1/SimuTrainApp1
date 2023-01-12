@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SimuTrainApp.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SimuTrainAppContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SimuTrainAppContext") ?? throw new InvalidOperationException("Connection string 'SimuTrainAppContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SimuTrain") ?? throw new InvalidOperationException("Connection string 'SimuTrain' not found.")));
 
 
 // Add services to the container.
