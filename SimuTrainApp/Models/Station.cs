@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using SimuTrainApp.ViewModels;
+
 namespace SimuTrainApp.Models;
 
 public class Station
@@ -30,6 +32,8 @@ public class Station
         this.NBParcels = NBParcels;
         this.NBPassenger = NBPassenger;
     }
+
+
     #endregion
 
     #region "Methods"

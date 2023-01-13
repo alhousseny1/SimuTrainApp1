@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using SimuTrainApp.ViewModels;
+
 namespace SimuTrainApp.Models
 {
     public class Train
@@ -38,31 +40,33 @@ namespace SimuTrainApp.Models
             this.RouteOfTrain = Route;
         }
 
+
+
         #endregion
-          //public class TestTrain : Train
-          //  {
-          //      public override int Moving(int km, int speed)
-          //      {
-          //          return (int)Math.Round(((double)km) / speed, 0);
-          //      }
-          //      public double GetTopSpeed()
-          //      {
-          //          return 100;
-          //      }
-          //  }
+        //public class TestTrain : Train
+        //  {
+        //      public override int Moving(int km, int speed)
+        //      {
+        //          return (int)Math.Round(((double)km) / speed, 0);
+        //      }
+        //      public double GetTopSpeed()
+        //      {
+        //          return 100;
+        //      }
+        //  }
 
-          //  static void Main()
-          //  {
-          //      TestTrain Tr = new();
+        //  static void Main()
+        //  {
+        //      TestTrain Tr = new();
 
-          //      Tr.StartEngine();
-          //      double speed = Tr.GetTopSpeed();
-          //      var travelTime = Tr.Moving(speed: 60, km: 120);
-          //      //Console.WriteLine("ma vitesse max est {0}", speed);
-          //  }
+        //      Tr.StartEngine();
+        //      double speed = Tr.GetTopSpeed();
+        //      var travelTime = Tr.Moving(speed: 60, km: 120);
+        //      //Console.WriteLine("ma vitesse max est {0}", speed);
+        //  }
         #region "Methods Train"
 
         #endregion
-  
+
     }
 }

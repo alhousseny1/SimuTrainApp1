@@ -4,11 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="Centered">Nos trains</h1>
 
-<p>
+@*<p>
     <a asp-action="Create">Create New</a>
-</p>
+</p>*@
 <table class="table table-bordered table-dark">
     <thead >
         <tr>
@@ -24,17 +24,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.NBParcels)
             </th>
-            <th>
+@*            <th>
                 @Html.DisplayNameFor(model => model.Speed)
-            </th>
-           <th></th>
+            </th>*@
+ @*          <th></th>*@
        </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
             <tr class="table-info">
             <td>
-                @Html.DisplayFor(modelItem => item.Matricule)
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Matricule)</a>
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Capacity)
@@ -45,14 +46,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NBParcels)
             </td>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.Speed)
-            </td>
-            <td>
+            </td>*@
+ @*           <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+            </td>*@
         </tr>
 }
     </tbody>

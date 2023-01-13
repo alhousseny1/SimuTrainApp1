@@ -107,5 +107,6 @@ namespace SimuTrainApp.Controllers
                 return View();
             }
         }
+
     }
 }

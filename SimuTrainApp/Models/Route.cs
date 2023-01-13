@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
-
+using SimuTrainApp.ViewModels;
 
 namespace SimuTrainApp.Models
 {
-    
+
     public class Route
     {
 
@@ -18,7 +18,13 @@ namespace SimuTrainApp.Models
         public int Distance { get; set; }
         public Station? ArrivalStation { get; set; }
 
-        public TimeSpan? Horaire { get; set; }
+        public TimeSpan? Horaire { get {
+                if (DepartureTime.HasValue && ArrivalTime.HasValue) 
+                {
+                    return ArrivalTime.Value.Subtract(DepartureTime.Value);
+                }
+                return null;
+            } }
 
         #endregion
 
@@ -29,6 +35,7 @@ namespace SimuTrainApp.Models
 
         }
 
+        
         public Route(Station IdDepartureStation, TimeSpan departureTime, TimeSpan arrivalTime, int Distance, Station IdArrivalStation, TimeSpan Horaire)
         {
             this.DepartureStation = IdDepartureStation;
@@ -36,8 +43,10 @@ namespace SimuTrainApp.Models
             this.ArrivalTime = arrivalTime;
             this.Distance = Distance;
             this.ArrivalStation = IdArrivalStation;
-            this.Horaire = arrivalTime - departureTime;
+            //this.Horaire = arrivalTime - departureTime;
         }
+
+
 
 
         #endregion
