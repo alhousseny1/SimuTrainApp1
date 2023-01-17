@@ -22,7 +22,8 @@ namespace SimuTrainApp.Controllers
         // GET: Parcel
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Parcel.ToListAsync());
+            var dBContext = _context.Parcel.Include(p => p.CurrentTrain);
+            return View(await dBContext.ToListAsync());
         }
 
         // GET: Parcel/Details/5
@@ -34,6 +35,7 @@ namespace SimuTrainApp.Controllers
             }
 
             var parcel = await _context.Parcel
+                .Include(p => p.CurrentTrain)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (parcel == null)
             {
@@ -46,6 +48,7 @@ namespace SimuTrainApp.Controllers
         // GET: Parcel/Create
         public IActionResult Create()
         {
+            ViewData["IdTrain"] = new SelectList(_context.Train, "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Type")] Parcel parcel)
+        public async Task<IActionResult> Create([Bind("Id,Type,IdTrain")] Parcel parcel)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace SimuTrainApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdTrain"] = new SelectList(_context.Train, "Id", "Id", parcel.IdTrain);
             return View(parcel);
         }
 
@@ -78,6 +82,7 @@ namespace SimuTrainApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdTrain"] = new SelectList(_context.Train, "Id", "Id", parcel.IdTrain);
             return View(parcel);
         }
 
@@ -86,7 +91,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Type")] Parcel parcel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Type,IdTrain")] Parcel parcel)
         {
             if (id != parcel.Id)
             {
@@ -113,6 +118,7 @@ namespace SimuTrainApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdTrain"] = new SelectList(_context.Train, "Id", "Id", parcel.IdTrain);
             return View(parcel);
         }
 
@@ -125,6 +131,7 @@ namespace SimuTrainApp.Controllers
             }
 
             var parcel = await _context.Parcel
+                .Include(p => p.CurrentTrain)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (parcel == null)
             {
