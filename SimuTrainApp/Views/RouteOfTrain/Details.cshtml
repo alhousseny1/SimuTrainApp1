@@ -10,7 +10,45 @@
     <h4>RouteOfTrain</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NbRoute)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NbRoute)
+        </dd>
+
+
     </dl>
+    <h5 class="table offset-sm-2">
+        Station (@Model.StopStations.Count() On This Route)
+    </h5>
+    <table class="table offset-sm-2">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StopStations.FirstOrDefault().Name)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StopStations)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Station" asp-action="Details" asp-route-id="@item.Id">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </a>
+                    </td>
+
+                    <td>
+                        <a asp-controller="Station" asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                        <a asp-controller="Station" asp-action="Delete" asp-route-id="@item.Id">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |

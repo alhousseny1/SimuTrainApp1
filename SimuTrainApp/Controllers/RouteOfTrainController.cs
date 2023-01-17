@@ -34,6 +34,7 @@ namespace SimuTrainApp.Controllers
             }
 
             var routeOfTrain = await _context.RouteOfTrain
+                .Include(t => t.StopStations)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (routeOfTrain == null)
             {
@@ -54,7 +55,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] RouteOfTrain routeOfTrain)
+        public async Task<IActionResult> Create([Bind("Id,NbRoute")] RouteOfTrain routeOfTrain)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +87,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] RouteOfTrain routeOfTrain)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NbRoute")] RouteOfTrain routeOfTrain)
         {
             if (id != routeOfTrain.Id)
             {
