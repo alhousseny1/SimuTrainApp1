@@ -19,11 +19,15 @@ namespace SimuTrainApp.Models
         public string Color { get; set; }
         [Display(Name = "Speed")]
         public int Speed { get; set; }
-        public List<Person>? Passengers { get; set; }
-        public List<Parcel>? Parcels { get; set; }
+        [Display(Name = "IdRoute")]
+        public int IdRoute { get; set; }
+
+        public virtual List<Person>? Passengers { get; set; }
+        public virtual List<Parcel>? Parcels { get; set; }
+
         [ForeignKey("IdRoute")]
         [Display(Name = "RouteOfTrain")]
-        public RouteOfTrain RouteOfTrain { get; set; }
+        public virtual RouteOfTrain RouteOfTrain { get; set; }
         #endregion
 
         #region "Constructors Train"

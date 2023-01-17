@@ -10,7 +10,10 @@ namespace SimuTrainApp.Models
 
         [Key]
         public int  Id { get; set; }
-        public List<Station>? StopStations { get; set; }
+        [Display(Name ="NbRoute")]
+        [Required]
+        public int NbRoute { get; set; }
+        public virtual List<Station>? StopStations { get; set; }
 
         #endregion
 
