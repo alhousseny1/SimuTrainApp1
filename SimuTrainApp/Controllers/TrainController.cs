@@ -22,7 +22,8 @@ namespace SimuTrainApp.Controllers
         // GET: Train
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Train.ToListAsync());
+            var dBContext = _context.Train.Include(t => t.RouteOfTrain);
+            return View(await dBContext.ToListAsync());
         }
 
         // GET: Train/Details/5
@@ -34,6 +35,7 @@ namespace SimuTrainApp.Controllers
             }
 
             var train = await _context.Train
+                .Include(t => t.RouteOfTrain)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (train == null)
             {
@@ -46,6 +48,7 @@ namespace SimuTrainApp.Controllers
         // GET: Train/Create
         public IActionResult Create()
         {
+            ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "NbRoute");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Matricule,Capacity,Color,Speed")] Train train)
+        public async Task<IActionResult> Create([Bind("Id,Matricule,Capacity,Color,Speed,IdRoute")] Train train)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace SimuTrainApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "Id", train.IdRoute);
             return View(train);
         }
 
@@ -78,6 +82,7 @@ namespace SimuTrainApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "Id", train.IdRoute);
             return View(train);
         }
 
@@ -86,7 +91,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Matricule,Capacity,Color,Speed")] Train train)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Matricule,Capacity,Color,Speed,IdRoute")] Train train)
         {
             if (id != train.Id)
             {
@@ -113,6 +118,7 @@ namespace SimuTrainApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "Id", train.IdRoute);
             return View(train);
         }
 
@@ -125,6 +131,7 @@ namespace SimuTrainApp.Controllers
             }
 
             var train = await _context.Train
+                .Include(t => t.RouteOfTrain)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (train == null)
             {
