@@ -15,6 +15,12 @@ namespace SimuTrainApp.Controllers
 
         public IActionResult Index()
         {
+
+            return View();
+        }
+        public IActionResult Accueil()
+        {
+
             return View();
         }
 
