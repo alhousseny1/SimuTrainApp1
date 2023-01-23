@@ -16,10 +16,11 @@ public class Station
     [MaxLength(50)]
     [Required]
     public string Place { get; set; }
+    public int? IdRoute { get; set; }
 
     [ForeignKey("IdRoute")]
     [Display(Name = "route")]
-    public virtual RouteOfTrain Route { get; set; }
+    public virtual RouteOfTrain? Route { get; set; }
     public virtual List<Person>? Passengers { get; set; }
     public virtual List<Parcel>? Parcels { get; set; }
     public virtual List<Train>? TrainsInStation { get; set; }

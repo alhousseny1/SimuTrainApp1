@@ -22,7 +22,10 @@ namespace SimuTrainApp.Controllers
         // GET: Train
         public async Task<IActionResult> Index()
         {
-            var dBContext = _context.Train.Include(t => t.RouteOfTrain);
+            var dBContext = _context.Train
+                .Include(t => t.CurrentStation)
+                .Include(t => t.RouteOfTrain);
+
             return View(await dBContext.ToListAsync());
         }
 
@@ -35,9 +38,10 @@ namespace SimuTrainApp.Controllers
             }
 
             var train = await _context.Train
+                .Include(t => t.CurrentStation)
                 .Include(t => t.RouteOfTrain)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (train == null)
+                if (train == null)
             {
                 return NotFound();
             }
@@ -48,6 +52,7 @@ namespace SimuTrainApp.Controllers
         // GET: Train/Create
         public IActionResult Create()
         {
+            ViewData["CurrentIdStation"] = new SelectList(_context.Station, "Id", "Place");
             ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "NbRoute");
             return View();
         }
@@ -57,7 +62,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Matricule,Capacity,Color,Speed,IdRoute")] Train train)
+        public async Task<IActionResult> Create([Bind("Id,Matricule,Capacity,Color,Speed,IdRoute,CurrentIdStation")] Train train)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +70,8 @@ namespace SimuTrainApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "Id", train.IdRoute);
+            ViewData["CurrentIdStation"] = new SelectList(_context.Station, "Id", "Place", train.CurrentIdStation);
+            ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "NbRoute", train.IdRoute);
             return View(train);
         }
 
@@ -82,6 +88,7 @@ namespace SimuTrainApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["CurrentIdStation"] = new SelectList(_context.Station, "Id", "Place", train.CurrentIdStation);
             ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "Id", train.IdRoute);
             return View(train);
         }
@@ -91,7 +98,7 @@ namespace SimuTrainApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Matricule,Capacity,Color,Speed,IdRoute")] Train train)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Matricule,Capacity,Color,Speed,IdRoute,CurrentIdStation")] Train train)
         {
             if (id != train.Id)
             {
@@ -118,6 +125,7 @@ namespace SimuTrainApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CurrentIdStation"] = new SelectList(_context.Station, "Id", "Place", train.CurrentIdStation);
             ViewData["IdRoute"] = new SelectList(_context.RouteOfTrain, "Id", "Id", train.IdRoute);
             return View(train);
         }
@@ -131,6 +139,7 @@ namespace SimuTrainApp.Controllers
             }
 
             var train = await _context.Train
+                .Include(t => t.CurrentStation)
                 .Include(t => t.RouteOfTrain)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (train == null)
@@ -155,14 +164,14 @@ namespace SimuTrainApp.Controllers
             {
                 _context.Train.Remove(train);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TrainExists(int id)
         {
-          return _context.Train.Any(e => e.Id == id);
+            return _context.Train.Any(e => e.Id == id);
         }
     }
 }

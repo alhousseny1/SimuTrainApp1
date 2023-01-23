@@ -21,13 +21,18 @@ namespace SimuTrainApp.Models
         public int Speed { get; set; }
         [Display(Name = "IdRoute")]
         public int IdRoute { get; set; }
+        [Display(Name = "Current Staion")]
+        public int? CurrentIdStation { get; set; }
 
         public virtual List<Person>? Passengers { get; set; }
         public virtual List<Parcel>? Parcels { get; set; }
 
         [ForeignKey("IdRoute")]
         [Display(Name = "RouteOfTrain")]
-        public virtual RouteOfTrain RouteOfTrain { get; set; }
+        public virtual RouteOfTrain? RouteOfTrain { get; set; }
+        [ForeignKey("CurrentIdStation")]
+        [Display(Name = "IdStation")]
+        public virtual Station? CurrentStation { get; set; }
         #endregion
 
         #region "Constructors Train"
@@ -57,7 +62,7 @@ namespace SimuTrainApp.Models
         #endregion
 
         #region "Methods Train"
-
+       
         #endregion
 
     }
