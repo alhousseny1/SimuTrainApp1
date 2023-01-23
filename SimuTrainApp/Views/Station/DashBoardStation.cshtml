@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SimuTrainApp.Models.Station>
+
+@{
+    ViewData["Title"] = "DashBoardStation";
+}
+
+<h1>DashBoardStation</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@foreach (var item in Model)
+{
+    <table class="table">
+        <thead>
+            <th>
+                Station
+            </th>
+        </thead>
+        <tbody>
+            <td>
+                    @item.Name
+            </td>
+            <td>
+                    @item.Place
+            </td>
+
+            @foreach (Train train in item.TrainsInStation)
+            {
+                if (train == null)
+                {
+                    <td>
+                        Il n'y a aucun train dans cette gare
+                    </td>
+                }
+
+                else
+                {
+                    <td>
+                            @train.Matricule
+                    </td>
+                    <td>
+                            @train.Color
+                    </td>
+                }
+
+            }
+
+        </tbody>
+    </table>
+
+}
+

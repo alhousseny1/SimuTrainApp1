@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SimuTrainApp.Data;
 using SimuTrainApp.Models;
+using SimuTrainApp.ViewModels;
 
 namespace SimuTrainApp.Controllers
 {
@@ -17,6 +18,17 @@ namespace SimuTrainApp.Controllers
         public StationController(DBContext context)
         {
             _context = context;
+        }
+
+        public async Task<IActionResult> DashBoardStation()
+        {
+            List<Station> Stations = new List<Station>();
+
+            var stations = await _context.Station
+                    .Include(t => t.TrainsInStation)
+                    .ToListAsync();
+
+            return View(stations);
         }
 
         // GET: Station
