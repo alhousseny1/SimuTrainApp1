@@ -5,6 +5,7 @@ namespace SimuTrainApp.Models
 {
     public class Train
     {
+
         #region "Properties Train"
         [Key]
         public int Id { get; set; }
@@ -14,7 +15,10 @@ namespace SimuTrainApp.Models
         public int NBParcels { get; set; }
         public int Speed { get; set; }
         public Route RouteOfTrain { get; set; }
-        
+        public object Location { get; internal set; }
+        public int RouteOfTrainId { get; internal set; }
+        public int CurrentStationId { get; internal set; }
+
         public void StartEngine() { }
         #endregion
         //public virtual int Moving(int km, int speed) { return 1; }

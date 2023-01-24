@@ -12,7 +12,7 @@ public class Station
     public string? Place { get; set; }
     public int? NBParcels { get; set; }
     public int? NBPassenger { get; set; }
-    public Train? TrainInStation { get; set; }
+    public int? TrainInStationId { get; internal set; }
 
     #endregion
 

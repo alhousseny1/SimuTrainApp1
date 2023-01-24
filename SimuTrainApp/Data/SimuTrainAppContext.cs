@@ -10,6 +10,12 @@ namespace SimuTrainApp.Data
 {
     public class SimuTrainAppContext : DbContext
     {
+        internal readonly object Trains;
+
+        public SimuTrainAppContext()
+        {
+        }
+
         public SimuTrainAppContext (DbContextOptions<SimuTrainAppContext> options)
             : base(options)
         {

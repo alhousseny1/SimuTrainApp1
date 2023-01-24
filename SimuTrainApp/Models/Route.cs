@@ -26,6 +26,9 @@ namespace SimuTrainApp.Models
                 return null;
             } }
 
+        public int DepartureStationId { get; internal set; }
+        public int ArrivalStationId { get; internal set; }
+
         #endregion
 
         #region "Constructor Route"
