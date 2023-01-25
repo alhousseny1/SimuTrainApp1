@@ -15,14 +15,12 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-image:url(../assets/traingif.gif);
 }
 
 a{
     text-decoration:none;
 }
-/*a:hover {
-    background-color: lightgray;
-}*/
 
 
 /* Views datalist management */
@@ -30,26 +28,33 @@ a{
     text-align: center;
 }
 
-/*table {
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 50px;
-}*/
+.table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #edce17;
+    overflow: hidden;
+}
 
-table thead {
+table thead{
+    text-align:center;
+    background-color:black;
+    color:#f7f1f1;
+}
+
+table tr, table td{
+    border:1px solid black;
+}
+
+.tbody {
     text-align: center;
-    text-decoration:#fff;
-    background-color: #000;
+    border-collapse:collapse;
 }
 
-/* couleur khaki pour toutes les lignes paires d'un tableau */
-tr:nth-child(even) {
-    background-color: #c591db;
-}
 
-/*tr:hover {
-    background-color: lightblue;
-}*/
+
+
 
 /* bordure droite pour toutes les cellules d'un tableau sauf la derniere */
 th:not(:last-child), td:not(:last-child) {

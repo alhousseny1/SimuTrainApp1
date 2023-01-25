@@ -9,8 +9,8 @@
 @*<p>
     <a asp-action="Create">Create New</a>
 </p>*@
-<table class="table table-bordered table-dark">
-    <thead >
+<table class="table">
+    <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Matricule)
@@ -30,12 +30,11 @@
  @*          <th></th>*@
        </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody">
 @foreach (var item in Model) {
-            <tr class="table-info">
+            <tr class="yell">
             <td>
                     <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Matricule)</a>
-                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Capacity)
@@ -58,3 +57,4 @@
 }
     </tbody>
 </table>
+
