@@ -185,7 +185,7 @@ namespace SimuTrainApp.Controllers
             var departureStation = _context.Station.Find(route.DepartureStationId);
             var arrivalStation = _context.Station.Find(route.ArrivalStationId);
 
-            var viewModel = new ViewModels.TrainMovementViewModel()
+            var viewModel = new TrainMovementViewModel()
             {
                 Train = train,
                 Route = route,
