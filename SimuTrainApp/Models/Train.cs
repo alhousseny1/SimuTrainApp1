@@ -15,7 +15,7 @@ namespace SimuTrainApp.Models
         public int NBParcels { get; set; }
         public int Speed { get; set; }
         public Route RouteOfTrain { get; set; }
-        public object Location { get; internal set; }
+        public string Location { get; internal set; }
         public int RouteOfTrainId { get; internal set; }
         public int CurrentStationId { get; internal set; }
 

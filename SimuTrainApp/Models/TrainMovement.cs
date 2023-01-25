@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using SimuTrainApp.Data;
+using SimuTrainApp.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 

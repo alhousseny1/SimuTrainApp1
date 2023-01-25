@@ -168,7 +168,7 @@ namespace SimuTrainApp.Controllers
             try
             {
                 _trainMovement.Move(trainId, departureStationId, arrivalStationId);
-                return RedirectToAction("Index");
+                return RedirectToAction("Movement");
             }
             catch (Exception ex)
             {
@@ -195,7 +195,7 @@ namespace SimuTrainApp.Controllers
 
             //_trainMovement.MoveTrain(trainId, routeId);
 
-            return View(viewModel);
+            return View("Movement");
         }
 
     }

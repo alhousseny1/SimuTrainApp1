@@ -30,13 +30,13 @@ namespace SimuTrainApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("ArrivalStationId")
+                    b.Property<int>("ArrivalStationId")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan?>("ArrivalTime")
                         .HasColumnType("time");
 
-                    b.Property<int?>("DepartureStationId")
+                    b.Property<int>("DepartureStationId")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan?>("DepartureTime")
@@ -44,9 +44,6 @@ namespace SimuTrainApp.Migrations
 
                     b.Property<int>("Distance")
                         .HasColumnType("int");
-
-                    b.Property<TimeSpan?>("Horaire")
-                        .HasColumnType("time");
 
                     b.HasKey("Id");
 
@@ -82,8 +79,6 @@ namespace SimuTrainApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainInStationId");
-
                     b.ToTable("Station");
                 });
 
@@ -97,6 +92,13 @@ namespace SimuTrainApp.Migrations
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
+
+                    b.Property<int>("CurrentStationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Matricule")
                         .IsRequired()
@@ -125,24 +127,19 @@ namespace SimuTrainApp.Migrations
                 {
                     b.HasOne("SimuTrainApp.Models.Station", "ArrivalStation")
                         .WithMany()
-                        .HasForeignKey("ArrivalStationId");
+                        .HasForeignKey("ArrivalStationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SimuTrainApp.Models.Station", "DepartureStation")
                         .WithMany()
-                        .HasForeignKey("DepartureStationId");
+                        .HasForeignKey("DepartureStationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ArrivalStation");
 
                     b.Navigation("DepartureStation");
-                });
-
-            modelBuilder.Entity("SimuTrainApp.Models.Station", b =>
-                {
-                    b.HasOne("SimuTrainApp.Models.Train", "TrainInStation")
-                        .WithMany()
-                        .HasForeignKey("TrainInStationId");
-
-                    b.Navigation("TrainInStation");
                 });
 
             modelBuilder.Entity("SimuTrainApp.Models.Train", b =>
