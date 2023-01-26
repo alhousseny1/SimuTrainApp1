@@ -193,7 +193,7 @@ namespace SimuTrainApp.Controllers
                 ArrivalStationName = arrivalStation.Name
             };
 
-            //_trainMovement.MoveTrain(trainId, routeId);
+            _trainMovement.MoveTrain(trainId, routeId);
 
             return View("Movement");
         }

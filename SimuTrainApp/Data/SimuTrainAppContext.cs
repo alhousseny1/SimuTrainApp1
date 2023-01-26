@@ -23,6 +23,7 @@ namespace SimuTrainApp.Data
 
         public DbSet<Route> Route { get; set; } = default!;
         public DbSet<Station> Station { get; set; } = default!;
+
         public DbSet<Train> Train { get; set; } = default!;
             
 

@@ -30,13 +30,13 @@ namespace SimuTrainApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ArrivalStationId")
+                    b.Property<int?>("ArrivalStationId")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan?>("ArrivalTime")
                         .HasColumnType("time");
 
-                    b.Property<int>("DepartureStationId")
+                    b.Property<int?>("DepartureStationId")
                         .HasColumnType("int");
 
                     b.Property<TimeSpan?>("DepartureTime")
@@ -127,15 +127,11 @@ namespace SimuTrainApp.Migrations
                 {
                     b.HasOne("SimuTrainApp.Models.Station", "ArrivalStation")
                         .WithMany()
-                        .HasForeignKey("ArrivalStationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ArrivalStationId");
 
                     b.HasOne("SimuTrainApp.Models.Station", "DepartureStation")
                         .WithMany()
-                        .HasForeignKey("DepartureStationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartureStationId");
 
                     b.Navigation("ArrivalStation");
 

@@ -33,5 +33,10 @@ namespace SimuTrainApp.Models
 
             _context.SaveChanges();
         }
+
+        internal void MoveTrain(int trainId, int routeId)
+        {
+            throw new NotImplementedException();
+        }
     }
  }
