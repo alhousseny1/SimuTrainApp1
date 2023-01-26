@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SimuTrainApp.Data;
 using SimuTrainApp.Models;
+using SimuTrainApp.ViewModels;
 
 namespace SimuTrainApp.Controllers
 {
     public class TrainsController : Controller
     {
         private readonly SimuTrainAppContext _context;
+        private TrainMovement _trainMovement;
 
         public TrainsController(SimuTrainAppContext context)
         {
             _context = context;
+            _trainMovement = new TrainMovement(_context);
         }
 
         // GET: Trains
@@ -157,5 +160,43 @@ namespace SimuTrainApp.Controllers
         {
           return _context.Train.Any(e => e.Id == id);
         }
+
+
+        [HttpPost]
+        public ActionResult Move(int trainId, int departureStationId, int arrivalStationId)
+        {
+            try
+            {
+                _trainMovement.Move(trainId, departureStationId, arrivalStationId);
+                return RedirectToAction("Movement");
+            }
+            catch (Exception ex)
+            {
+                // handle exception
+                return View("Error");
+            }
+        }
+
+        public ActionResult Move(int trainId, int routeId)
+        {
+            var train = _context.Train.Find(trainId);
+            var route = _context.Route.Find(routeId);
+
+            var departureStation = _context.Station.Find(route.DepartureStationId);
+            var arrivalStation = _context.Station.Find(route.ArrivalStationId);
+
+            var viewModel = new TrainMovementViewModel()
+            {
+                Train = train,
+                Route = route,
+                DepartureStationName = departureStation.Name,
+                ArrivalStationName = arrivalStation.Name
+            };
+
+            _trainMovement.MoveTrain(trainId, routeId);
+
+            return View("Movement");
+        }
+
     }
 }

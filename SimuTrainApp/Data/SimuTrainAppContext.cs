@@ -10,6 +10,12 @@ namespace SimuTrainApp.Data
 {
     public class SimuTrainAppContext : DbContext
     {
+        internal readonly object Trains;
+
+        public SimuTrainAppContext()
+        {
+        }
+
         public SimuTrainAppContext (DbContextOptions<SimuTrainAppContext> options)
             : base(options)
         {
@@ -17,6 +23,7 @@ namespace SimuTrainApp.Data
 
         public DbSet<Route> Route { get; set; } = default!;
         public DbSet<Station> Station { get; set; } = default!;
+
         public DbSet<Train> Train { get; set; } = default!;
             
 

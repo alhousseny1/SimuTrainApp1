@@ -1,25 +1,26 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-  background-image:url(../assets/traingif.gif);
+    margin-bottom: 60px;
+    background-image: url(../assets/traingif.gif);
+
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
 }
 
 
@@ -37,19 +38,20 @@ a{
     overflow: hidden;
 }
 
-table thead{
-    text-align:center;
-    background-color:black;
-    color:#f7f1f1;
+
+table thead {
+    text-align: center;
+    background-color: black;
+    color: #f7f1f1;
 }
 
-table tr, table td{
-    border:1px solid black;
+table tr, table td {
+    border: 1px solid black;
 }
 
 .tbody {
     text-align: center;
-    border-collapse:collapse;
+    border-collapse: collapse;
 }
 
 
@@ -68,8 +70,8 @@ th:not(:last-child), td:not(:last-child) {
     text-decoration: none;
 }
 
-.MyButton:hover {
-   background-color: aquamarine;
+    .MyButton:hover {
+        background-color: aquamarine;
     }
 
 .alert-danger {
@@ -77,26 +79,26 @@ th:not(:last-child), td:not(:last-child) {
 }
 
 .wrapper-train {
-    display:flex;
-    background-color: skyblue;
+    display: flex;
+    /*    background-color: skyblue;*/
     margin-right: 0;
     margin-left: 0;
     height: 15%;
 }
 
-.wrapper-train img {
-    height: 15%;
-    width: 20%;
-    margin-top:50px;
-    margin-left: 42%;
-    margin-right: 50%;
-    margin-bottom:-100px;
-}
+    .wrapper-train img {
+        height: 15%;
+        width: 20%;
+        margin-top: 50px;
+        margin-left: 42%;
+        margin-right: 50%;
+        margin-bottom: -100px;
+    }
 
 
-.start-image{
-   margin-top:15%;
-   width:50%;
+.start-image {
+    margin-top: 15%;
+    width: 50%;
 }
 
 .trainplacement {
@@ -108,7 +110,7 @@ th:not(:last-child), td:not(:last-child) {
     justify-content: center;
     background: #fff;
     flex-direction: column;
-}   
+}
 
 
 
@@ -121,16 +123,16 @@ th:not(:last-child), td:not(:last-child) {
     animation: animate 0.5s linear infinite;
 }
 
-.train:before {
-    position: absolute;
-    content: '';
-    height: 30px;
-    width: 60px;
-    background: #fff;
-    top: -10px;
-    right: -20px;
-    transform: rotate(40deg);
-    border-radius: 0 0 0 50px;
+    .train:before {
+        position: absolute;
+        content: '';
+        height: 30px;
+        width: 60px;
+        background: #fff;
+        top: -10px;
+        right: -20px;
+        transform: rotate(40deg);
+        border-radius: 0 0 0 50px;
     }
 
 @keyframes animate {
@@ -152,23 +154,23 @@ th:not(:last-child), td:not(:last-child) {
 }
 
     .train .wheel:before {
-    position: absolute;
-    content: '';
-    background: #fff;
-    height: 5px;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
+        position: absolute;
+        content: '';
+        background: #fff;
+        height: 5px;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
-.train .wheel:after {
-    position: absolute;
-    content: '';
-    background: #fff;
-    height: 5px;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%) rotate(90deg);
+    .train .wheel:after {
+        position: absolute;
+        content: '';
+        background: #fff;
+        height: 5px;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
     }
 
 @keyframes wheels {
@@ -195,12 +197,12 @@ th:not(:last-child), td:not(:last-child) {
     overflow: hidden;
 }
 
-.cover .path {
-     height: 5px;
-     width: 600%;
-     background: #000;
-     position: absolute;
-     animation: path 1.5s linear infinite;
+    .cover .path {
+        height: 5px;
+        width: 600%;
+        background: #000;
+        position: absolute;
+        animation: path 1.5s linear infinite;
     }
 
 .path:before {
@@ -227,9 +229,10 @@ th:not(:last-child), td:not(:last-child) {
         transform: translateX(-50%);
     }
 }
-.text{
-    position:relative;
-    text-align:center;
+
+.text {
+    position: relative;
+    text-align: center;
     bottom: -30px;
-    font-size:20px;
+    font-size: 20px;
 }

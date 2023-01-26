@@ -45,9 +45,6 @@ namespace SimuTrainApp.Migrations
                     b.Property<int>("Distance")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan?>("Horaire")
-                        .HasColumnType("time");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ArrivalStationId");
@@ -82,8 +79,6 @@ namespace SimuTrainApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainInStationId");
-
                     b.ToTable("Station");
                 });
 
@@ -97,6 +92,13 @@ namespace SimuTrainApp.Migrations
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
+
+                    b.Property<int>("CurrentStationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Matricule")
                         .IsRequired()
@@ -134,15 +136,6 @@ namespace SimuTrainApp.Migrations
                     b.Navigation("ArrivalStation");
 
                     b.Navigation("DepartureStation");
-                });
-
-            modelBuilder.Entity("SimuTrainApp.Models.Station", b =>
-                {
-                    b.HasOne("SimuTrainApp.Models.Train", "TrainInStation")
-                        .WithMany()
-                        .HasForeignKey("TrainInStationId");
-
-                    b.Navigation("TrainInStation");
                 });
 
             modelBuilder.Entity("SimuTrainApp.Models.Train", b =>

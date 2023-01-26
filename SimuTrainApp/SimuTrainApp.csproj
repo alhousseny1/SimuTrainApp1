@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Class\**" />
+    <Content Remove="Class\**" />
+    <EmbeddedResource Remove="Class\**" />
+    <None Remove="Class\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Home\Acceuil.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Privacy.cshtml" />
