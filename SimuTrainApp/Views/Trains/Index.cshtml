@@ -11,7 +11,7 @@
     <a asp-action="Create">Create New</a>
 </p>*@
 <table class="table">
-    <thead >
+    <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Matricule)
@@ -37,7 +37,6 @@
             <tr class="yell">
             <td>
                     <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Matricule)</a>
-                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Capacity)
@@ -60,3 +59,4 @@
 }
     </tbody>
 </table>
+

@@ -16,6 +16,7 @@ html {
 body {
     margin-bottom: 60px;
     background-image: url(../assets/traingif.gif);
+
 }
 
 a {
@@ -36,6 +37,7 @@ a {
     background-color: #edce17;
     overflow: hidden;
 }
+
 
 table thead {
     text-align: center;
